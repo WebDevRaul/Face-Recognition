@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Metal+Mania&display=swap');
+
+:root {
+  --primary: rgb(85, 0, 5);
+  --secondary: rgb(125, 20, 25);
+  --background: rgba(165, 55, 60, .1);
+  --muted: rgb(205, 210, 220);
+  --grey: rgb(70, 80, 90);
+  --white: rgb(255, 255, 255);
+  --spacing: 2px;
+  --border: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--grey);
+}
+main {
+  min-height: calc(100vh - 105px);
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.4;
+  font-size: 1rem;
+  background-color: var(--background);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Metal Mania', cursive;
+  margin-bottom: 1.25rem;
+  letter-spacing: var(--spacing);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+a:focus, input:focus {
+  outline: none;
+}
+
+
+/* //////////////////////////// */
+/* ////////// Navbar ////////// */
+/* //////////////////////////// */
+
+.navbar {
+  margin-left: 5%;
+  margin-top: 10px;
+}
+
+/* //////////////////////////// */
+/* ////////// Footer ////////// */
+/* //////////////////////////// */
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+/* ////////////////////////// */
+/* ////////// Home ////////// */
+/* ////////////////////////// */
+
+
+
+/* //////////////////////////////// */
+/* ////////// Responsive ////////// */
+/* //////////////////////////////// */
+
+@media (max-width: 991px) {
+  .navbar {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  main {
+    min-height: calc(100vh - 127px);
+  }
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-text {
+    margin: 5px 0;
+  }
+}
