@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
 import DropZone from './DropZone';
+import Preview from './Preview';
 
 const Home = () => {
   const [file, setFile] = useState([]);
@@ -18,11 +19,9 @@ const Home = () => {
         <Logo />
         <DropZone setFile={setFile} />
       </div>
-      <div className='photo'>
-        {
-          file.map((photo, index) => <img key={index} src={photo.preview} width='300px' height='300px' /> )
-        }
-      </div>
+      {
+        file.map((el, index) => <Preview key={index} file={el} /> )
+      }
     </>
   )
 };

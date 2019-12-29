@@ -7,6 +7,7 @@
   "dependencies": {
     "clarifai": "^2.9.1",
     "classnames": "^2.2.6",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-manifest": "^2.2.31",
