@@ -6,7 +6,7 @@ import { useDropzone } from 'react-dropzone';
 const DropZone = ({ setFile }) => {
   
   const onDrop = useCallback(acceptedFiles => {
-    acceptedFiles.map((file) => {
+    acceptedFiles.forEach((file) => {
       const reader = new FileReader()
  
       reader.onabort = () => console.log('file reading was aborted')

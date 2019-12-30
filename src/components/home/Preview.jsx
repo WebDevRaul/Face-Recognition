@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import Clarifai from 'clarifai';
 import { CLARIFAI_API_KEY } from '../../config/key';
 
-const app = new Clarifai.App({ apiKey: CLARIFAI_API_KEY });
 
 const Preview = ({ file }) => {
   const [box, setBox] = useState({ left: 0, top: 0, right: 0, bottom: 0 });
   const { left, top, right, bottom } = box;
+  const app = new Clarifai.App({ apiKey: CLARIFAI_API_KEY });
 
   useEffect(() => {
     setBox({ left: 0, top: 0, right: 0, bottom: 0 })
