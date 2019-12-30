@@ -7,7 +7,6 @@ import { CLARIFAI_API_KEY } from '../../config/key';
 const Preview = ({ file }) => {
   const [box, setBox] = useState({ left: 0, top: 0, right: 0, bottom: 0 });
   const { left, top, right, bottom } = box;
-  const app = new Clarifai.App({ apiKey: CLARIFAI_API_KEY });
 
   useEffect(() => {
     setBox({ left: 0, top: 0, right: 0, bottom: 0 })
@@ -15,7 +14,7 @@ const Preview = ({ file }) => {
 
   // Update BOX CDU
   useEffect(() => {
-    app.models.predict(
+    new Clarifai.App({ apiKey: CLARIFAI_API_KEY }).models.predict(
       Clarifai.FACE_DETECT_MODEL,
       file.base64
     )
