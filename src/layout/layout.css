@@ -10,6 +10,7 @@
   --white: rgb(255, 255, 255);
   --spacing: 2px;
   --border: 4px;
+  --transition: all .3s linear;
 }
 
 * {
@@ -118,6 +119,7 @@ a:focus, input:focus, .dropzone:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  transition: var(--transition);
 }
 
 

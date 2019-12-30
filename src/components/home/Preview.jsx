@@ -10,6 +10,11 @@ const Preview = ({ file }) => {
   const { left, top, right, bottom } = box;
 
   useEffect(() => {
+    setBox({ left: 0, top: 0, right: 0, bottom: 0 })
+  },[file])
+
+  // Update BOX CDU
+  useEffect(() => {
     app.models.predict(
       Clarifai.FACE_DETECT_MODEL,
       file.base64

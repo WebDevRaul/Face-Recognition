@@ -21,7 +21,7 @@ const Home = () => {
       </div>
       <div className='bottom'>
         {
-          file.map((el, index) => <Preview key={index} file={el} /> )
+          file && file.map((el, index) => <Preview key={index} file={el} /> )
         }
       </div>
     </>
