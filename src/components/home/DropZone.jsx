@@ -6,9 +6,17 @@ import { useDropzone } from 'react-dropzone';
 const DropZone = ({ setFile }) => {
   
   const onDrop = useCallback(acceptedFiles => {
-    setFile(acceptedFiles.map(file => Object.assign(file, { 
-      preview: URL.createObjectURL(file)
-     })))
+    acceptedFiles.map((file) => {
+      const reader = new FileReader()
+ 
+      reader.onabort = () => console.log('file reading was aborted')
+      reader.onerror = () => console.log('file reading has failed')
+      reader.onload = e => {
+        const base64 = e.target.result.replace(/^data:image\/[a-z]+;base64,/, "");
+        setFile([ Object.assign(file, { preview: URL.createObjectURL(file), base64 }) ]);
+      }
+      reader.readAsDataURL(file)
+    })
     // eslint-disable-next-line
   },[]);
 

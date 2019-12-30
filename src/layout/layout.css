@@ -107,6 +107,16 @@ a:focus, input:focus, .dropzone:focus {
   justify-content: center;
   align-items: center;
   height: calc(100vh - 205px);
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+.bounding-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px var(--primary) inset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 
