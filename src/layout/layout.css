@@ -83,6 +83,10 @@ a:focus, input:focus, .dropzone:focus {
   justify-content: space-evenly;
   align-items: center;
 }
+.bottom {
+  height: calc(100vh - 205px);
+  display: flex;
+}
 .gatsby-image-wrapper {
   border-radius: var(--border);
 }
@@ -103,10 +107,7 @@ a:focus, input:focus, .dropzone:focus {
   color: var(--green);
 }
 .photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 205px);
+  margin: auto;
   position: relative;
   width: 300px;
   height: 300px;

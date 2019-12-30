@@ -19,9 +19,11 @@ const Home = () => {
         <Logo />
         <DropZone setFile={setFile} />
       </div>
-      {
-        file.map((el, index) => <Preview key={index} file={el} /> )
-      }
+      <div className='bottom'>
+        {
+          file.map((el, index) => <Preview key={index} file={el} /> )
+        }
+      </div>
     </>
   )
 };

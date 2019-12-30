@@ -31,10 +31,7 @@ const Preview = ({ file }) => {
   return (
     <div className='photo' id='photo'>
       <img src={file.preview} width='300px' height='300px' alt='sample' />
-      <div 
-        className='bounding-box' 
-        style={{ top, right, bottom, left }}>
-      </div>
+      <div className='bounding-box' style={{ top, right, bottom, left }}></div>
     </div>
   )
 }
