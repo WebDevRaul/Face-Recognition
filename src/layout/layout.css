@@ -19,9 +19,6 @@
   box-sizing: border-box;
   color: var(--grey);
 }
-main {
-  min-height: calc(100vh - 105px);
-}
 
 body {
   font-family: 'Lato', sans-serif;
@@ -62,8 +59,13 @@ a:focus, input:focus, .dropzone:focus {
 /* //////////////////////////// */
 
 .navbar {
-  margin-left: 5%;
-  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px;
+}
+.navbar h2 {
+  margin:  auto auto auto calc(100vw / 2 - 200px);
+  color: var(--primary);
 }
 
 /* //////////////////////////// */
@@ -79,19 +81,22 @@ a:focus, input:focus, .dropzone:focus {
 /* ////////////////////////// */
 /* ////////// Home ////////// */
 /* ////////////////////////// */
+
 .top {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
 }
 .bottom {
-  height: calc(100vh - 205px);
+  min-height: calc(100vh - 286px);
   display: flex;
+  align-items: center;
 }
 .gatsby-image-wrapper {
   border-radius: var(--border);
 }
 .dropzone {
+  display: flex;
+  margin: 0 20px 20px 20px;
   border: 3px dashed var(--grey);
   border-radius: var(--border);
   padding: 30px 50px;
@@ -110,8 +115,6 @@ a:focus, input:focus, .dropzone:focus {
 .photo {
   margin: auto;
   position: relative;
-  width: 300px;
-  height: 300px;
 }
 .bounding-box {
   position: absolute;
@@ -127,14 +130,14 @@ a:focus, input:focus, .dropzone:focus {
 /* ////////// Responsive ////////// */
 /* //////////////////////////////// */
 
-@media (max-width: 991px) {
-  .navbar {
-    text-align: center;
-    margin-left: 0;
-  }
-}
-
 @media (max-width: 576px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar h2 {
+    margin: 0;
+  }
   main {
     min-height: calc(100vh - 127px);
   }

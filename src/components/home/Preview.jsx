@@ -22,11 +22,14 @@ const Preview = ({ file }) => {
     .then(res => {
       const data = res['outputs'][0]['data']['regions'][0]['region_info']['bounding_box'];
       const { left_col, top_row, right_col, bottom_row } = data;
+      const image = document.querySelector('#image');
+      const width = Number(image.width);
+      const height = Number(image.height);
       setBox({ 
-        left: left_col * 300,
-        top: top_row * 300,
-        right: 300 - (right_col * 300),
-        bottom: 300 - (bottom_row * 300),
+        left: left_col * width,
+        top: top_row * height,
+        right: width - (right_col * width),
+        bottom: height - (bottom_row * height),
        })
     })
     .catch(err => console.log(err))
@@ -35,7 +38,7 @@ const Preview = ({ file }) => {
 
   return (
     <div className='photo' id='photo'>
-      <img src={file.preview} width='300px' height='300px' alt='sample' />
+      <img src={file.preview} id='image' style={{ maxWidth:'300px', maxHeight:'300px' }} alt='sample' />
       <div className='bounding-box' style={{ top, right, bottom, left }}></div>
     </div>
   )

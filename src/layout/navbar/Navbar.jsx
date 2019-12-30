@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "gatsby";
+import Logo from '../../components/home/Logo';
 
 const Navbar = ({ siteTitle }) => {
   return (
     <div className='navbar'>
-      <h2>
-        <Link to='/'>{siteTitle}</Link>
-      </h2>
+      <Link to='/'><Logo /></Link>
+      <h2>{siteTitle}</h2>
     </div>
   )
 }

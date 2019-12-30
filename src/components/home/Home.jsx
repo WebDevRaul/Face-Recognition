@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Logo from './Logo';
 import DropZone from './DropZone';
 import Preview from './Preview';
 
@@ -16,7 +15,6 @@ const Home = () => {
   return (
     <>
       <div className='top'>
-        <Logo />
         <DropZone setFile={setFile} />
       </div>
       <div className='bottom'>
