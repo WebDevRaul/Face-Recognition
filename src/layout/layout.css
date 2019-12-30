@@ -64,7 +64,7 @@ a:focus, input:focus, .dropzone:focus {
   margin: 20px;
 }
 .navbar h2 {
-  margin:  auto auto auto calc(100vw / 2 - 200px);
+  margin: 0;
   color: var(--primary);
 }
 
@@ -85,23 +85,59 @@ a:focus, input:focus, .dropzone:focus {
 .top {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 .bottom {
-  min-height: calc(100vh - 286px);
+  min-height: calc(100vh - 199px);
   display: flex;
   align-items: center;
 }
 .gatsby-image-wrapper {
   border-radius: var(--border);
 }
+.logo {
+  position: absolute;
+  left: 5%;
+  transition: var(--transition);
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 10;
+}
+.spinner:after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 6px solid var(--white);
+  border-color: var(--white) transparent var(--white) transparent;
+  animation: spinn 1.2s linear infinite;
+}
+@keyframes spinn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .dropzone {
   display: flex;
-  margin: 0 20px 20px 20px;
+  align-items: center;
+  margin: 0 20px;
   border: 3px dashed var(--grey);
   border-radius: var(--border);
-  padding: 30px 50px;
+  padding: 25px 50px;
   text-align: center;
   cursor: pointer;
+  transition: var(--transition);
 }
 .dropzone h5 {
   margin-bottom: 0;
@@ -130,16 +166,55 @@ a:focus, input:focus, .dropzone:focus {
 /* ////////// Responsive ////////// */
 /* //////////////////////////////// */
 
-@media (max-width: 576px) {
+@media (max-width: 991px) {
+  body {
+    font-size: .9em;
+  }
   .navbar {
     flex-direction: column;
     align-items: center;
   }
+  .bottom {
+    min-height: calc(100vh - 192px);
+  }
+}
+@media (max-width: 767px) {
+  body {
+    font-size: .8em;
+  }
+  .dropzone {
+    padding: 25px 10px;
+    max-width: 300px;
+  }
+  .logo {
+    left: 2%;
+  }
+  .bottom {
+    min-height: calc(100vh - 197px);
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: .7em;
+  }
   .navbar h2 {
     margin: 0;
   }
-  main {
-    min-height: calc(100vh - 127px);
+  .top {
+    flex-direction: column;
+  }
+  .bottom {
+    min-height: calc(100vh - 332px);
+  }
+  .logo {
+    position: unset;
+    left: unset;
+  }
+  .dropzone {
+    padding: 25px 10px;
+    max-width: 100%;
+    margin: 0 20px 20px 20px;
   }
   .footer {
     flex-direction: column;
@@ -147,5 +222,16 @@ a:focus, input:focus, .dropzone:focus {
   }
   .footer-text {
     margin: 5px 0;
+  }
+}
+@media (max-width: 375px) {
+  body {
+    font-size: .6em;
+  }
+  .bottom {
+    min-height: calc(100vh - 313px);
+  }
+  .dropzone {
+    margin: 0 10px 10px 10px;
   }
 }

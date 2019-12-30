@@ -4,7 +4,7 @@ import Clarifai from 'clarifai';
 import { CLARIFAI_API_KEY } from '../../config/key';
 
 
-const Preview = ({ file }) => {
+const Preview = ({ file, setLoading }) => {
   const [data, setData] = useState([]);
   const [box, setBox] = useState([{ left: 0, top: 0, right: 0, bottom: 0 }]);
   const app = new Clarifai.App({ apiKey: CLARIFAI_API_KEY });
@@ -14,13 +14,18 @@ const Preview = ({ file }) => {
   },[file])
   
   useEffect(() => {
+    setLoading(true);
     app.models.predict(
       Clarifai.FACE_DETECT_MODEL,
       file.base64
       ).then(res => {
         const data = res['outputs'][0]['data']['regions'];
-        setData([ ...data ])
-      }).catch(e => console.log(e))
+        setLoading(false);
+        setData([ ...data ]);
+      }).catch(e => {
+        setLoading(false);
+        console.log(e)
+      })
       // eslint-disable-next-line
     },[file])
     
@@ -43,7 +48,7 @@ const Preview = ({ file }) => {
       }
       // eslint-disable-next-line
     },[data]);
-    
+
     return (
     <div className='photo' id='photo'>
       <img src={file.preview} id='image' style={{ maxWidth:'300px', maxHeight:'300px' }} alt='sample' />
@@ -55,7 +60,8 @@ const Preview = ({ file }) => {
 }
 
 Preview.propTypes = {
-  file: PropTypes.object.isRequired
+  file: PropTypes.object.isRequired,
+  setLoading: PropTypes.func.isRequired
 }
 
 export default Preview;
